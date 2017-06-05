@@ -1,0 +1,126 @@
+.mainWrap	
+	margin: 90px auto 0 auto
+	position: relative
+	width: 400px
+	height: 600px
+	cursor: default
+
+	//Shape
+	.shape
+		stroke-dasharray: 250 1450
+		stroke-dashoffset: -1070
+		stroke-width: 10px
+		fill: transparent
+		stroke: $mainColor
+		border-bottom: 5px solid black
+		transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s
+
+	//Wraping Content
+	.contentWrap
+		position: relative
+		top: -565px
+		margin: 0 auto 0 auto
+
+			
+		.topWrap
+			display: block
+			position: relative
+			background-color: $backColor
+			width: 350px
+			margin: 0 auto
+			height: 250px
+			h1
+				text-align: center
+				color: #fff
+				padding-top: 30px
+				font-family: $newFont
+				font-size: 20px
+				letter-spacing: 5px
+			.image
+				position: relative
+				width: 105px
+				height: 105px
+				border-radius: 50%
+				margin: 20px auto 0
+				border: 5px solid rgba(255,255,255, 0.1)
+				img
+					display: block
+					margin: 5% auto
+					width: 95px
+					height: 95px
+					border-radius: 50%
+			.image:before, image:after, span
+				position: absolute
+				content: ''
+				height: 100%
+				width: 100%
+				top: 0%
+				left: 0%
+				border-radius: 50%
+				box-shadow: 0 0 15px #287ec6
+				animation: radar 2s ease-out infinite
+
+			.image:after
+				animation-delay: .66s
+			span
+				animation-delay: 1.33s
+			@keyframes radar
+				0%
+					opacity: 0
+					transform: scale(0.6)
+				80%
+					opacity: 1
+				100%
+					transform: scale(1)
+					opacity: 0
+
+	
+		.bottomWrap
+			@extend .topWrap
+			margin: 20px auto 0 auto
+
+
+			form
+				padding-top: 40px
+				input
+					display: flex
+					outline: none
+					margin: 20px auto
+					border: none
+					padding: 10px
+
+				input[type=text]
+					border: none
+					border-bottom: 1px solid $mainColor
+					background-color: $inputColor
+					color: #fff
+					transition: 0.5s
+					font-family: $newFont
+					text-align: center
+					
+					&:focus
+						padding: 10px 20px
+				
+				input[type=password]
+					@extend input[type=text]	
+				
+			button
+				display: block
+				outline: none
+				margin: 55px auto 0 auto
+				padding: 20px 30px 
+				border: none
+				font-family: $newFont
+				background-color: #222
+				cursor: pointer
+				transition: .5s cubic-bezier(1,0.64,0.3,1.05)
+				&:hover
+					background-color: $inputColor
+					padding: 30px 40px
+					color: #fff
+
+//Shape on hover
+.mainWrap:hover .shape
+	stroke-width: 4px
+	stroke-dashoffset: 0
+	stroke-dasharray: 2000
